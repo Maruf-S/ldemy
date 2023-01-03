@@ -9,6 +9,28 @@ export type MyCustomRequest = Override<
   NextApiRequest,
   { body: GetCourseParams }
 >;
+
+/**
+ * @swagger
+ * /api/course/getAll/:
+ *   post:
+ *     summary: Get all the courses on the database
+ *     tags: [Course]
+ *     requestBody:
+ *      required: true
+ *      content:
+ *          application/json:
+ *              schema:
+ *                  type: object
+ *                  required:
+ *                      - user_id
+ *                  properties:
+ *                      user_id:
+ *                          type: string
+ *     responses:
+ *       200:
+ *         description: Returns all courses in the database
+ */
 async function handler(
   req: MyCustomRequest,
   res: NextApiResponse<Course[] | null>

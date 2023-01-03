@@ -9,6 +9,28 @@ export type MyCustomRequest = Override<
   NextApiRequest,
   { body: GetSkillParams }
 >;
+
+/**
+ * @swagger
+ * /api/skill/getAll/:
+ *   post:
+ *     summary: Get all the skills on the database
+ *     tags: [Skill]
+ *     requestBody:
+ *      required: true
+ *      content:
+ *          application/json:
+ *              schema:
+ *                  type: object
+ *                  required:
+ *                      - user_id
+ *                  properties:
+ *                      user_id:
+ *                          type: string
+ *     responses:
+ *       200:
+ *         description: Returns all skills with related courses in the database
+ */
 async function handler(
   req: MyCustomRequest,
   res: NextApiResponse<Skill[] | null>
